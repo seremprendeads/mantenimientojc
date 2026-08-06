@@ -772,6 +772,7 @@ margin:10px;
 .contact__info {
   display: grid;
   gap: 18px;
+  min-width: 0;
 }
 
 .contact-card {
@@ -800,6 +801,7 @@ margin:10px;
   box-shadow: var(--shadow-sm);
   line-height: 0;
 }
+.contact__map iframe { width: 100%; max-width: 100%; display: block; }
 
 .contact__form {
   background: var(--color-white);
@@ -810,6 +812,7 @@ margin:10px;
   display: flex;
   flex-direction: column;
   gap: 6px;
+  min-width: 0;
 }
 .contact__form h3 { margin-bottom: 14px; font-size: 1.2rem; }
 .contact__form label { font-size: 0.85rem; font-weight: 500; margin-top: 12px; margin-bottom: 6px; }
@@ -977,6 +980,7 @@ margin:10px;
   .footer__col { align-items: center; }
   .footer__bottom { flex-direction: column; gap: 16px; text-align: center; }
   .about__badge { right: 12px; bottom: -18px; padding: 14px 18px; }
+  .contact__form { padding: 24px; }
   .hero__actions { flex-direction: column; align-items: stretch; }
   .hero__actions .btn { justify-content: center; }
   .whatsapp-float { width: 54px; height: 54px; font-size: 1.4rem; bottom: 18px; right: 18px; }
