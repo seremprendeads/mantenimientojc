@@ -46,7 +46,7 @@
 /* ============ 2. RESET ============ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -280,6 +280,9 @@ section { padding-block: clamp(64px, 9vw, 120px); }
   transition: transform var(--speed) var(--ease), opacity var(--speed) var(--ease), background var(--speed) var(--ease);
 }
 .navbar.is-scrolled .navbar__toggle span { background: var(--color-black); }
+.navbar__toggle.is-active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.navbar__toggle.is-active span:nth-child(2) { opacity: 0; }
+.navbar__toggle.is-active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* Hero está antes del scroll, por lo que el navbar transparente usa texto blanco;
    cuando NO hay scroll, el logo-text debe ser blanco también */
@@ -949,6 +952,7 @@ margin:10px;
   .hero__grid { grid-template-columns: 1fr; }
   .about__grid { grid-template-columns: 1fr; }
   .contact__grid { grid-template-columns: 1fr; }
+  .about__badge { right: 12px; }
 }
 
 @media (max-width: 900px) {
