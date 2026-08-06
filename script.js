@@ -1,0 +1,279 @@
+/* ==========================================================================
+   JC SOLUCIONES INTEGRALES — SCRIPT
+   Módulos: Navbar, Scroll Reveal, Contador, Galería/Lightbox, Testimonios,
+   FAQ Accordion, Formulario de contacto, Botón volver arriba.
+   ========================================================================== */
+
+document.addEventListener('DOMContentLoaded', () => {
+  initYear();
+  initNavbar();
+  initScrollReveal();
+  initCounters();
+  initGallery();
+  initTestimonials();
+  initAccordion();
+  initContactForm();
+  initBackToTop();
+});
+
+/* ---------- Año dinámico en el footer ---------- */
+function initYear() {
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+}
+
+/* ---------- Navbar: scroll + menú móvil ---------- */
+function initNavbar() {
+  const navbar = document.getElementById('navbar');
+  const toggle = document.getElementById('navToggle');
+  const menu = document.getElementById('navMenu');
+
+  const onScroll = () => {
+    if (window.scrollY > 40) {
+      navbar.classList.add('is-scrolled');
+    } else {
+      navbar.classList.remove('is-scrolled');
+    }
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const isOpen = menu.classList.toggle('is-open');
+      toggle.classList.toggle('is-active', isOpen);
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    // Cerrar el menú al elegir un link (mobile)
+    menu.querySelectorAll('.navbar__link').forEach((link) => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+}
+
+/* ---------- Scroll Reveal con Intersection Observer ---------- */
+function initScrollReveal() {
+  const targets = document.querySelectorAll('[data-reveal]');
+  if (!targets.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: '0px 0px -60px 0px' }
+  );
+
+  targets.forEach((el) => observer.observe(el));
+}
+
+/* ---------- Contador animado (años de trayectoria) ---------- */
+function initCounters() {
+  const counters = document.querySelectorAll('[data-counter]');
+  if (!counters.length) return;
+
+  const animateCounter = (el) => {
+    const target = parseInt(el.dataset.counter, 10) || 0;
+    const duration = 1400;
+    const start = performance.now();
+
+    const step = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target);
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.6 }
+  );
+
+  counters.forEach((el) => observer.observe(el));
+}
+
+/* ---------- Galería + Lightbox ---------- */
+function initGallery() {
+  const items = Array.from(document.querySelectorAll('.gallery__item'));
+  const lightbox = document.getElementById('lightbox');
+  if (!items.length || !lightbox) return;
+
+  const lightboxImg = document.getElementById('lightboxImg');
+  const btnClose = document.getElementById('lightboxClose');
+  const btnPrev = document.getElementById('lightboxPrev');
+  const btnNext = document.getElementById('lightboxNext');
+  let currentIndex = 0;
+
+  const openLightbox = (index) => {
+    currentIndex = index;
+    const full = items[currentIndex].dataset.full;
+    const altText = items[currentIndex].querySelector('img').alt;
+    lightboxImg.src = full;
+    lightboxImg.alt = altText;
+    lightbox.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    btnClose.focus();
+  };
+
+  const closeLightbox = () => {
+    lightbox.classList.remove('is-open');
+    document.body.style.overflow = '';
+  };
+
+  const showRelative = (delta) => {
+    currentIndex = (currentIndex + delta + items.length) % items.length;
+    lightboxImg.src = items[currentIndex].dataset.full;
+    lightboxImg.alt = items[currentIndex].querySelector('img').alt;
+  };
+
+  items.forEach((item, index) => {
+    item.addEventListener('click', () => openLightbox(index));
+  });
+
+  btnClose.addEventListener('click', closeLightbox);
+  btnPrev.addEventListener('click', () => showRelative(-1));
+  btnNext.addEventListener('click', () => showRelative(1));
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('is-open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showRelative(-1);
+    if (e.key === 'ArrowRight') showRelative(1);
+  });
+}
+
+/* ---------- Carrusel de testimonios (automático) ---------- */
+function initTestimonials() {
+  const track = document.getElementById('testimonialsTrack');
+  const dotsWrap = document.getElementById('testimonialsDots');
+  if (!track || !dotsWrap) return;
+
+  const slides = Array.from(track.children);
+  let current = 0;
+  let autoplayTimer = null;
+
+  slides.forEach((_, index) => {
+    const dot = document.createElement('button');
+    dot.setAttribute('aria-label', `Ir al testimonio ${index + 1}`);
+    if (index === 0) dot.classList.add('is-active');
+    dot.addEventListener('click', () => goTo(index));
+    dotsWrap.appendChild(dot);
+  });
+
+  const dots = Array.from(dotsWrap.children);
+
+  function goTo(index) {
+    current = index;
+    track.style.transform = `translateX(-${index * 100}%)`;
+    dots.forEach((dot, i) => dot.classList.toggle('is-active', i === index));
+  }
+
+  function next() {
+    goTo((current + 1) % slides.length);
+  }
+
+  function startAutoplay() {
+    stopAutoplay();
+    autoplayTimer = setInterval(next, 5500);
+  }
+  function stopAutoplay() {
+    if (autoplayTimer) clearInterval(autoplayTimer);
+  }
+
+  const wrapper = track.closest('.testimonials__track-wrapper');
+  wrapper.addEventListener('mouseenter', stopAutoplay);
+  wrapper.addEventListener('mouseleave', startAutoplay);
+
+  startAutoplay();
+}
+
+/* ---------- FAQ Accordion ---------- */
+function initAccordion() {
+  const triggers = document.querySelectorAll('.accordion__trigger');
+  if (!triggers.length) return;
+
+  triggers.forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const panel = trigger.closest('.accordion__item').querySelector('.accordion__panel');
+      const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+
+      // Cerrar todos
+      triggers.forEach((t) => {
+        t.setAttribute('aria-expanded', 'false');
+        t.closest('.accordion__item').querySelector('.accordion__panel').style.maxHeight = null;
+      });
+
+      // Abrir el actual si estaba cerrado
+      if (!isOpen) {
+        trigger.setAttribute('aria-expanded', 'true');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    });
+  });
+}
+
+/* ---------- Formulario de contacto ---------- */
+function initContactForm() {
+  const form = document.getElementById('contactForm');
+  const note = document.getElementById('formNote');
+  if (!form) return;
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    if (!form.checkValidity()) {
+      note.textContent = 'Por favor completá todos los campos correctamente.';
+      note.style.color = '#c0392b';
+      return;
+    }
+
+    const data = new FormData(form);
+    const name = data.get('name');
+    const phone = data.get('phone');
+    const email = data.get('email');
+    const message = data.get('message');
+
+    // Envío vía WhatsApp con los datos del formulario
+    const text = `Hola, soy ${name}.%0ATeléfono: ${phone}%0AEmail: ${email}%0AMensaje: ${message}`;
+    const whatsappUrl = `https://wa.me/541168822012?text=${encodeURIComponent(
+      `Hola, soy ${name}. Teléfono: ${phone}. Email: ${email}. Mensaje: ${message}`
+    )}`;
+
+    note.textContent = 'Redirigiendo a WhatsApp para enviar tu consulta...';
+    note.style.color = '';
+
+    window.open(whatsappUrl, '_blank', 'noopener');
+    form.reset();
+  });
+}
+
+/* ---------- Botón volver arriba ---------- */
+function initBackToTop() {
+  const btn = document.getElementById('backToTop');
+  if (!btn) return;
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
