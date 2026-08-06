@@ -663,6 +663,7 @@ section { padding-block: clamp(64px, 9vw, 120px); }
   padding: 40px;
   box-shadow: var(--shadow-md);
   text-align: center;
+margin:10px;
 }
 .testimonial-card__stars { color: var(--color-yellow); letter-spacing: 4px; margin-bottom: 18px; }
 .testimonial-card__text {
