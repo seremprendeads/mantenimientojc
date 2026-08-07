@@ -39,7 +39,7 @@
 
     <!-- CSS -->
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 
 </head>
 <body>
@@ -93,6 +93,7 @@
 
       <div class="container hero__grid">
         <div class="hero__content" data-reveal="fade-right">
+          <img src="mantenimiento_JC.png" alt="Mantenimiento JC" class="hero__logo" width="120" height="120" loading="eager" fetchpriority="high">
           <p class="eyebrow">Servicio técnico integral · CABA y GBA</p>
           <h1 class="hero__title">Soluciones Integrales<br>para tu Hogar o Local</h1>
           <p class="hero__subtitle">
@@ -100,10 +101,10 @@
             Un solo llamado, un trabajo bien hecho.
           </p>
           <div class="hero__actions">
-            <a href="https://wa.me/541168822012?text=Hola%2C%20quisiera%20solicitar%20un%20presupuesto." class="btn btn--accent btn--lg" target="_blank" rel="noopener">
+            <a href="#servicios" class="btn btn--ghost btn--lg">Ver Servicios</a>
+                <a href="https://wa.me/541168822012?text=Hola%2C%20quisiera%20solicitar%20un%20presupuesto." class="btn btn--accent btn--lg" target="_blank" rel="noopener">
               <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Solicitar Presupuesto
             </a>
-            <a href="#servicios" class="btn btn--ghost btn--lg">Ver Servicios</a>
           </div>
 
           <ul class="hero__indicators">
@@ -114,17 +115,21 @@
           </ul>
         </div>
 
-        <aside class="hero__card" data-reveal="fade-left" aria-label="Especialidades">
-          <h2 class="hero__card-title">Nuestras especialidades</h2>
-          <ul class="hero__card-list">
-            <li><i class="fa-solid fa-snowflake" aria-hidden="true"></i> Aires acondicionados</li>
-            <li><i class="fa-solid fa-bolt-lightning" aria-hidden="true"></i> Electricidad</li>
-            <li><i class="fa-solid fa-faucet-drip" aria-hidden="true"></i> Plomería</li>
-            <li><i class="fa-solid fa-fire-flame-simple" aria-hidden="true"></i> Gasista</li>
-            <li><i class="fa-solid fa-house-flood-water" aria-hidden="true"></i> Impermeabilización</li>
-            <li><i class="fa-solid fa-trowel" aria-hidden="true"></i> Refacciones</li>
-          </ul>
+        <aside class="hero__card" data-reveal="fade-left" aria-label="Video institucional">
+          <h2 class="hero__card-title">Conocé nuestro trabajo</h2>
+          <div class="hero__card-video">
+            <iframe
+              src="https://www.youtube.com/embed/NmZh5keO7hg"
+              title="Video institucional JC Soluciones Integrales"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+              loading="lazy">
+            </iframe>
+          </div>
         </aside>
+
       </div>
 
       <a href="#nosotros" class="hero__scroll" aria-label="Bajar a la siguiente sección">
@@ -171,7 +176,7 @@
         </div>
 
                <div class="about__media" data-reveal="fade-right">
-          <img src="nosotros.jpg" alt="Jonatan Carricaburo trabajando en la instalación de un equipo de aire acondicionado" loading="lazy" width="1000" height="1250">
+          <img src="galeria/nosotros.jpg" alt="Jonatan Carricaburo trabajando en la instalación de un equipo de aire acondicionado" loading="lazy" width="1000" height="1250">
           <div class="about__badge">
             <span class="about__badge-number" data-counter="8">0</span>
             <span class="about__badge-label">años de trayectoria</span>
@@ -336,29 +341,29 @@
         </div>
 
         <div class="gallery__grid" id="galleryGrid">
-          <button class="gallery__item" data-full="1.jpg">
-            <img src="1.jpg" alt="Instalación de aire acondicionado split" loading="lazy" width="600" height="800">
+          <button class="gallery__item" data-full="galeria/1.jpg">
+            <img src="galeria/1.jpg" alt="Instalación de aire acondicionado split" loading="lazy" width="600" height="800">
           </button>
-          <button class="gallery__item" data-full="2.jpg">
-            <img src="2.jpg" alt="Técnico revisando equipo de aire acondicionado" loading="lazy" width="600" height="600">
+          <button class="gallery__item" data-full="galeria/2.jpg">
+            <img src="galeria/2.jpg" alt="Técnico revisando equipo de aire acondicionado" loading="lazy" width="600" height="600">
           </button>
-          <button class="gallery__item" data-full="3.jpg">
-            <img src="3.jpg" alt="Herramientas de plomería y electricidad" loading="lazy" width="600" height="800">
+          <button class="gallery__item" data-full="galeria/3.jpg">
+            <img src="galeria/3.jpg" alt="Herramientas de plomería y electricidad" loading="lazy" width="600" height="800">
           </button>
-          <button class="gallery__item" data-full="4.jpg">
-            <img src="4.jpg" alt="Cocina remodelada tras trabajo de refacción" loading="lazy" width="600" height="600">
+          <button class="gallery__item" data-full="galeria/4.jpg">
+            <img src="galeria/4.jpg" alt="Cocina remodelada tras trabajo de refacción" loading="lazy" width="600" height="600">
           </button>
-          <button class="gallery__item" data-full="5.jpg">
-            <img src="5.jpg" alt="Tablero eléctrico prolijamente instalado" loading="lazy" width="600" height="800">
+          <button class="gallery__item" data-full="galeria/5.jpg">
+            <img src="galeria/5.jpg" alt="Tablero eléctrico prolijamente instalado" loading="lazy" width="600" height="800">
           </button>
-          <button class="gallery__item" data-full="6.jpg">
-            <img src="6.jpg" alt="Terraza impermeabilizada" loading="lazy" width="600" height="600">
+          <button class="gallery__item" data-full="galeria/6.jpg">
+            <img src="galeria/6.jpg" alt="Terraza impermeabilizada" loading="lazy" width="600" height="600">
           </button>
-          <button class="gallery__item" data-full="7.jpg">
-            <img src="7.jpg" alt="Baño con instalación de plomería nueva" loading="lazy" width="600" height="800">
+          <button class="gallery__item" data-full="galeria/7.jpg">
+            <img src="galeria/7.jpg" alt="Baño con instalación de plomería nueva" loading="lazy" width="600" height="800">
           </button>
-          <button class="gallery__item" data-full="8.jpg">
-            <img src="8.jpg" alt="Local comercial luego de mantenimiento general" loading="lazy" width="600" height="600">
+          <button class="gallery__item" data-full="galeria/8.jpg">
+            <img src="galeria/8.jpg" alt="Local comercial luego de mantenimiento general" loading="lazy" width="600" height="600">
           </button>
         </div>
       </div>
@@ -540,79 +545,8 @@
       </div>
     </section>
 
-    <!-- ============================================================
-         9. CONTACTO
-   
-    <section class="contact" id="contacto" aria-labelledby="contact-title">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">Contacto</p>
-          <h2 id="contact-title" class="section-title">Hablemos de tu proyecto</h2>
-        </div>
+    
 
-        <div class="contact__grid">
-          <div class="contact__info">
-            <div class="contact-card">
-              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
-              <div>
-                <h3>WhatsApp</h3>
-                <a href="https://wa.me/541168822012" target="_blank" rel="noopener">11 6882-2012</a>
-              </div>
-            </div>
-            <div class="contact-card">
-              <i class="fa-solid fa-phone" aria-hidden="true"></i>
-              <div>
-                <h3>Teléfono</h3>
-                <a href="tel:+541168822012">11 6882-2012</a>
-              </div>
-            </div>
-            <div class="contact-card">
-              <i class="fa-solid fa-user" aria-hidden="true"></i>
-              <div>
-                <h3>Responsable</h3>
-                <span>Jonatan Carricaburo</span>
-              </div>
-            </div>
-            <div class="contact-card">
-              <i class="fa-solid fa-clock" aria-hidden="true"></i>
-              <div>
-                <h3>Horario</h3>
-                <span>Lun. a Sáb. de 8 a 20 hs</span>
-              </div>
-            </div>
-
-            <div class="contact__map">
-              <!-- Marcador de posición: reemplazar por el embed real de Google Maps 
-              <iframe
-                title="Zona de cobertura JC Soluciones Integrales"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d105007.9!2d-58.5!3d-34.55!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDMzJzAwLjAiUyA1OMKwMzAnMDAuMCJX!5e0!3m2!1ses!2sar!4v0"
-                width="100%" height="260" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-              </iframe>
-            </div>
-          </div>
-
-          <form class="contact__form" id="contactForm" novalidate>
-            <h3>Envianos tu consulta</h3>
-
-            <label for="name">Nombre</label>
-            <input type="text" id="name" name="name" required autocomplete="name" placeholder="Tu nombre">
-
-            <label for="phone">Teléfono</label>
-            <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="11 1234-5678">
-
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required autocomplete="email" placeholder="tu@email.com">
-
-            <label for="message">Mensaje</label>
-            <textarea id="message" name="message" rows="4" required placeholder="Contanos qué necesitás"></textarea>
-
-            <button type="submit" class="btn btn--accent btn--full">Enviar</button>
-            <p class="contact__form-note" id="formNote" role="status" aria-live="polite"></p>
-          </form>
-        </div>
-      </div>
-    </section>
- ============================================================= -->
   </main>
 
   <!-- ============================================================
@@ -622,7 +556,7 @@
     <div class="container footer__grid">
       <div class="footer__brand">
         <a href="#inicio" class="navbar__logo">
-          <span class="navbar__logo-mark"> <img src="mantenimiento.JC.png" alt="Técnico realizando mantenimiento de un aire acondicionado en una vivienda" loading="eager" fetchpriority="high"></span></span>
+          <span class="navbar__logo-mark"> <img src="mantenimiento_JC.png" alt="Técnico realizando mantenimiento de un aire acondicionado en una vivienda" loading="eager" fetchpriority="high"></span></span>
           <span class="navbar__logo-text">Soluciones<br>Integrales</span>
         </a>
         <p>Soluciones integrales para tu hogar o local, con honestidad, compromiso y calidad.</p>
@@ -677,6 +611,6 @@
     <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
   </a>
 
-  <script src="script.js" defer></script>
+  <script src="js/script.js" defer></script>
 </body>
 </html>
