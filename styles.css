@@ -1006,8 +1006,12 @@ margin:10px;
   .footer__bottom { flex-direction: column; gap: 16px; text-align: center; }
   .about__badge { right: 12px; bottom: -18px; padding: 14px 18px; }
   .contact__form { padding: 24px; }
-  .hero__actions { flex-direction: column; align-items: stretch; }
+  .hero__content { text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .hero__logo { margin-inline: auto; margin-bottom: 8px; }
+  .hero__subtitle { margin-inline: auto; }
+  .hero__actions { flex-direction: column; align-items: stretch; width: 100%; }
   .hero__actions .btn { justify-content: center; }
+  .hero__indicators { justify-content: center; }
   .whatsapp-float { width: 54px; height: 54px; font-size: 1.4rem; bottom: 18px; right: 18px; }
   .whatsapp-float__tooltip { display: none; }
 }
