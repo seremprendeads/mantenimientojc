@@ -221,7 +221,6 @@ section { padding-block: clamp(64px, 9vw, 120px); }
   width: 68px;
   height: 68px;
   border-radius: var(--radius-sm);
-  background: linear-gradient(135deg, var(--color-green) 0%, var(--color-blue) 100%);
   color: var(--color-white);
   font-weight: 700;
   font-size: 1.1rem;
