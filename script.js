@@ -267,7 +267,7 @@ function initContactForm() {
     form.reset();
   });
 }
- 
+
 /* ---------- Botón volver arriba ---------- */
 function initBackToTop() {
   const btn = document.getElementById('backToTop');
