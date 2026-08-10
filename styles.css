@@ -842,6 +842,92 @@ section { padding-block: clamp(64px, 9vw, 120px); }
   border-color: var(--color-green);
   box-shadow: 0 0 0 4px rgba(110,187,78,0.15);
 }
+
+/* Selector de servicio personalizado (evita el picker nativo gigante en mobile) */
+.cta__select { position: relative; }
+.cta__select-native {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.cta__select-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border: 1.5px solid rgba(32,33,36,0.12);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: rgba(32,33,36,0.45);
+  background: var(--color-white);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color var(--speed) var(--ease), box-shadow var(--speed) var(--ease);
+}
+.cta__select-trigger.has-value { color: var(--text-main); }
+.cta__select-trigger i {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  transition: transform var(--speed) var(--ease);
+  flex-shrink: 0;
+}
+.cta__select.is-open .cta__select-trigger {
+  border-color: var(--color-green);
+  box-shadow: 0 0 0 4px rgba(110,187,78,0.15);
+}
+.cta__select.is-open .cta__select-trigger i { transform: rotate(180deg); }
+
+.cta__select-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: var(--color-white);
+  border: 1px solid rgba(32,33,36,0.10);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lg);
+  z-index: 20;
+  overflow: hidden;
+}
+.cta__select-search {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid rgba(32,33,36,0.10);
+  padding: 12px 16px;
+  font-family: inherit;
+  font-size: 0.92rem;
+  border-radius: 0;
+}
+.cta__select-search:focus { outline: none; box-shadow: none; }
+.cta__select-options {
+  list-style: none;
+  max-height: 240px;
+  overflow-y: auto;
+}
+.cta__select-options li {
+  padding: 12px 16px;
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: background var(--speed) var(--ease);
+}
+.cta__select-options li:hover,
+.cta__select-options li.is-active { background: var(--bg-section-alt); }
+.cta__select-options li[aria-selected="true"] { color: var(--color-green-dark); font-weight: 600; }
+.cta__select-options li.is-hidden { display: none; }
+.cta__select-empty {
+  display: none;
+  padding: 14px 16px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+.cta__select-empty.is-visible { display: block; }
 .cta__form-submit { margin-top: 22px; margin-inline: auto; justify-content: center; }
 .cta__form-trust {
   display: flex;
