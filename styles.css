@@ -438,6 +438,15 @@ section { padding-block: clamp(64px, 5vw, 80px); }
   align-items: center;
  }
 
+.partner__grid_servicios
+ {
+    display: grid;
+    grid-template-columns: 1.3fr 1.6fr;
+    gap: 48px;
+    align-items: center;
+}
+
+
 
 .partner__media {
   width: 100%;
@@ -1145,6 +1154,7 @@ section { padding-block: clamp(64px, 5vw, 80px); }
 
   .about__grid { grid-template-columns: 1fr; }
   .partner__grid { grid-template-columns: 1fr; gap: 32px; }
+  .partner__grid_servicios { grid-template-columns: 1fr; gap: 32px; }
   .partner__media { max-width: 320px; margin: 0 auto; }
   .contact__grid { grid-template-columns: 1fr; }
   .about__badge { right: 12px; }
