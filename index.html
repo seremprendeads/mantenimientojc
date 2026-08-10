@@ -54,7 +54,7 @@
     <div class="container navbar__inner">
       <a href="#inicio" class="navbar__logo" aria-label="JC Soluciones Integrales, inicio">
         <span class="navbar__logo-mark"> <img src="mantenimiento.JC.png" alt="Técnico realizando mantenimiento de un aire acondicionado en una vivienda" loading="eager" fetchpriority="high"></span>
-           <span class="navbar__logo-text">Soluciones<br>Integrales</span>
+       
       </a>
 
       <nav class="navbar__nav" id="navMenu" aria-label="Navegación principal">
@@ -579,23 +579,48 @@
               <input type="text" id="ctaName" name="name" placeholder="Tu nombre" required>
             </div>
             <div class="cta__form-field">
-              <label for="ctaService">Servicio que necesitás <span class="cta__required">*</span></label>
-              <select id="ctaService" name="service" required>
-                <option value="" disabled selected>Elegí un servicio</option>
-                <option value="Plomería">Plomería</option>
-                <option value="Gasista Matriculado">Gasista Matriculado</option>
-                <option value="Electricidad">Electricidad</option>
-                <option value="Impermeabilización de Terrazas">Impermeabilización de Terrazas</option>
-                <option value="Refacciones Generales">Refacciones Generales</option>
-                <option value="Mantenimiento de Casas">Mantenimiento de Casas</option>
-                <option value="Mantenimiento de Locales">Mantenimiento de Locales</option>
-                <option value="Herrería">Herrería</option>
-                <option value="Instalación de Aires Acondicionados">Instalación de Aires Acondicionados</option>
-                <option value="Reparación de Aires Acondicionados">Reparación de Aires Acondicionados</option>
-                <option value="Mantenimiento de Aires Acondicionados">Mantenimiento de Aires Acondicionados</option>
-                <option value="Consorcios y Administraciones">Consorcios y Administraciones</option>
-                <option value="Otro / no estoy seguro">Otro / no estoy seguro</option>
-              </select>
+              <label for="ctaServiceTrigger">Servicio que necesitás <span class="cta__required">*</span></label>
+              <div class="cta__select" id="ctaSelect">
+                <button type="button" class="cta__select-trigger" id="ctaServiceTrigger" aria-haspopup="listbox" aria-expanded="false">
+                  <span id="ctaServiceLabel">Elegí un servicio</span>
+                  <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </button>
+                <div class="cta__select-panel" id="ctaServicePanel" hidden>
+                  <input type="text" class="cta__select-search" id="ctaServiceSearch" placeholder="Buscar servicio..." autocomplete="off">
+                  <ul class="cta__select-options" id="ctaServiceOptions" role="listbox">
+                    <li role="option" data-value="Plomería">Plomería</li>
+                    <li role="option" data-value="Gasista Matriculado">Gasista Matriculado</li>
+                    <li role="option" data-value="Electricidad">Electricidad</li>
+                    <li role="option" data-value="Impermeabilización de Terrazas">Impermeabilización de Terrazas</li>
+                    <li role="option" data-value="Refacciones Generales">Refacciones Generales</li>
+                    <li role="option" data-value="Mantenimiento de Casas">Mantenimiento de Casas</li>
+                    <li role="option" data-value="Mantenimiento de Locales">Mantenimiento de Locales</li>
+                    <li role="option" data-value="Herrería">Herrería</li>
+                    <li role="option" data-value="Instalación de Aires Acondicionados">Instalación de Aires Acondicionados</li>
+                    <li role="option" data-value="Reparación de Aires Acondicionados">Reparación de Aires Acondicionados</li>
+                    <li role="option" data-value="Mantenimiento de Aires Acondicionados">Mantenimiento de Aires Acondicionados</li>
+                    <li role="option" data-value="Consorcios y Administraciones">Consorcios y Administraciones</li>
+                    <li role="option" data-value="Otro / no estoy seguro">Otro / no estoy seguro</li>
+                  </ul>
+                  <p class="cta__select-empty" id="ctaServiceEmpty">No se encontraron servicios.</p>
+                </div>
+                <select id="ctaService" name="service" required class="cta__select-native" tabindex="-1" aria-hidden="true">
+                  <option value="" disabled selected>Elegí un servicio</option>
+                  <option value="Plomería">Plomería</option>
+                  <option value="Gasista Matriculado">Gasista Matriculado</option>
+                  <option value="Electricidad">Electricidad</option>
+                  <option value="Impermeabilización de Terrazas">Impermeabilización de Terrazas</option>
+                  <option value="Refacciones Generales">Refacciones Generales</option>
+                  <option value="Mantenimiento de Casas">Mantenimiento de Casas</option>
+                  <option value="Mantenimiento de Locales">Mantenimiento de Locales</option>
+                  <option value="Herrería">Herrería</option>
+                  <option value="Instalación de Aires Acondicionados">Instalación de Aires Acondicionados</option>
+                  <option value="Reparación de Aires Acondicionados">Reparación de Aires Acondicionados</option>
+                  <option value="Mantenimiento de Aires Acondicionados">Mantenimiento de Aires Acondicionados</option>
+                  <option value="Consorcios y Administraciones">Consorcios y Administraciones</option>
+                  <option value="Otro / no estoy seguro">Otro / no estoy seguro</option>
+                </select>
+              </div>
             </div>
           </div>
 
