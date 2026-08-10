@@ -425,10 +425,8 @@ section { padding-block: clamp(64px, 9vw, 120px); }
 .partner__grid {
   display: grid;
   grid-template-columns: 1.3fr 0.7fr;
-  gap: 64px;
   align-items: center;
-  max-width: 100%;
-}
+ }
 
 .partner__media {
   width: 100%;
