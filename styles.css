@@ -437,7 +437,7 @@ section { padding-block: clamp(64px, 9vw, 120px); }
   gap: 48px;
   align-items: center;
  }
-.partner--alt .partner__grid { grid-template-columns: 0.7fr 1.3fr; }
+.partner--alt .partner__grid { grid-template-columns: 1.3fr 1.3fr;}
 
 .partner__media {
   width: 100%;
