@@ -65,9 +65,8 @@
           <li><a href="#galeria" class="navbar__link">Galería</a></li>
           <li><a href="#testimonios" class="navbar__link">Testimonios</a></li>
           <li><a href="#faq" class="navbar__link">FAQ</a></li>
-          <li><a href="#contacto" class="navbar__link">Contacto</a></li>
-        </ul>
-        <a href="https://wa.me/541168822012?text=Hola%2C%20quisiera%20solicitar%20un%20presupuesto." class="btn btn--accent navbar__cta" target="_blank" rel="noopener">
+         </ul>
+        <a href="#formulario"  class="btn btn--accent navbar__cta navbar__link" rel="noopener">
           Solicitar Presupuesto <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
         </a>
       </nav>
@@ -564,16 +563,52 @@
     </section>
 
     <!-- ============================================================
-         8. CALL TO ACTION
+         8. CALL TO ACTION — FORMULARIO
     ============================================================= -->
-    <section class="cta" aria-labelledby="cta-title">
+    <section class="cta" id="formulario" aria-labelledby="cta-title">
       <div class="cta__glow" aria-hidden="true"></div>
       <div class="container cta__inner">
-        <h2 id="cta-title" class="cta__title">¿Necesitás una solución rápida y profesional?</h2>
-        <p class="cta__text">Contanos qué necesitás y te respondemos por WhatsApp con un presupuesto sin cargo.</p>
-        <a href="https://wa.me/541168822012?text=Hola%2C%20quisiera%20solicitar%20un%20presupuesto." class="btn btn--cta-big" target="_blank" rel="noopener">
-           Hablar por WhatsApp   <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
-        </a>
+        <h3 id="cta-title" class="cta__title">¿Necesitás una solución rápida<br>y profesional?</h3>
+        <p class="cta__text">Elegí el servicio que buscás, contanos qué necesitás y te escribimos por WhatsApp al instante.</p>
+
+        <form id="ctaForm" class="cta__form" novalidate>
+          <div class="cta__form-grid">
+            <div class="cta__form-field">
+              <label for="ctaName">Nombre <span class="cta__required">*</span></label>
+              <input type="text" id="ctaName" name="name" placeholder="Tu nombre" required>
+            </div>
+            <div class="cta__form-field">
+              <label for="ctaService">Servicio que necesitás <span class="cta__required">*</span></label>
+              <select id="ctaService" name="service" required>
+                <option value="" disabled selected>Elegí un servicio</option>
+                <option value="Plomería">Plomería</option>
+                <option value="Gasista Matriculado">Gasista Matriculado</option>
+                <option value="Electricidad">Electricidad</option>
+                <option value="Impermeabilización de Terrazas">Impermeabilización de Terrazas</option>
+                <option value="Refacciones Generales">Refacciones Generales</option>
+                <option value="Mantenimiento de Casas">Mantenimiento de Casas</option>
+                <option value="Mantenimiento de Locales">Mantenimiento de Locales</option>
+                <option value="Herrería">Herrería</option>
+                <option value="Instalación de Aires Acondicionados">Instalación de Aires Acondicionados</option>
+                <option value="Reparación de Aires Acondicionados">Reparación de Aires Acondicionados</option>
+                <option value="Mantenimiento de Aires Acondicionados">Mantenimiento de Aires Acondicionados</option>
+                <option value="Consorcios y Administraciones">Consorcios y Administraciones</option>
+                <option value="Otro / no estoy seguro">Otro / no estoy seguro</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="cta__form-field">
+            <label for="ctaMessage">Contanos brevemente qué necesitás (opcional)</label>
+            <textarea id="ctaMessage" name="message" rows="3" placeholder="Ej: tengo una pérdida de agua en la cocina"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn--accent btn--lg cta__form-submit">
+            Enviar por WhatsApp <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+          </button>
+          <p class="cta__form-trust"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Consulta 100% sin compromiso, sin cargo</p>
+          <p class="cta__form-note" id="ctaFormNote" role="status" aria-live="polite"></p>
+        </form>
       </div>
     </section>
 
