@@ -433,11 +433,11 @@ section { padding-block: clamp(64px, 9vw, 120px); }
 /* ============ PROVEEDOR ============ */
 .partner__grid {
   display: grid;
-  grid-template-columns: 1.3fr 0.7fr;
+  grid-template-columns: 1.3fr 1.3fr;
   gap: 48px;
   align-items: center;
  }
-.partner--alt .partner__grid { grid-template-columns: 1.3fr 1.3fr;}
+.partner--alt .partner__grid { grid-template-columns: 0.7fr 1.3fr; }
 
 .partner__media {
   width: 100%;
@@ -451,6 +451,7 @@ section { padding-block: clamp(64px, 9vw, 120px); }
   width: 100%;
   max-width: 100%;
   height: auto;
+  aspect-ratio: 1/1;
   object-fit: contain;
   display: block;
 }
@@ -1143,11 +1144,8 @@ section { padding-block: clamp(64px, 9vw, 120px); }
   .navbar__toggle { display: flex; }
 
   .about__grid { grid-template-columns: 1fr; }
-  .partner__grid,
-  .partner--alt .partner__grid { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+  .partner__grid { grid-template-columns: 1fr; gap: 32px; }
   .partner__media { max-width: 320px; margin: 0 auto; }
-  .partner__content { display: flex; flex-direction: column; align-items: center; }
-  .partner__info { align-items: center; }
   .contact__grid { grid-template-columns: 1fr; }
   .about__badge { right: 12px; }
 }
@@ -1194,5 +1192,4 @@ section { padding-block: clamp(64px, 9vw, 120px); }
   .about__badge { padding: 12px 16px; bottom: -14px; right: 8px; }
   .about__badge-number { font-size: 1.5rem; }
   .about__badge-label { font-size: 0.68rem; }
-  .partner__media { max-width: 260px; }
 }
