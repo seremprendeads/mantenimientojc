@@ -163,13 +163,16 @@ function initGallery() {
   });
 }
 
-/* ---------- Carrusel de testimonios (automático) ---------- */
+/* ---------- Carrusel de testimonios (automático, loop continuo) ---------- */
 function initTestimonials() {
   const track = document.getElementById('testimonialsTrack');
   const dotsWrap = document.getElementById('testimonialsDots');
   if (!track || !dotsWrap) return;
 
-  const slides = Array.from(track.children);
+  const TRANSITION = 'transform 600ms cubic-bezier(0.4, 0, 0.2, 1)';
+
+  const slides = Array.from(track.children); // tarjetas reales
+  const total = slides.length;
   let current = 0;
   let autoplayTimer = null;
 
@@ -177,20 +180,57 @@ function initTestimonials() {
     const dot = document.createElement('button');
     dot.setAttribute('aria-label', `Ir al testimonio ${index + 1}`);
     if (index === 0) dot.classList.add('is-active');
-    dot.addEventListener('click', () => goTo(index));
+    dot.addEventListener('click', () => {
+      stopAutoplay();
+      goTo(index, true);
+      startAutoplay();
+    });
     dotsWrap.appendChild(dot);
   });
 
   const dots = Array.from(dotsWrap.children);
 
-  function goTo(index) {
+  // Clonamos la primera tarjeta y la agregamos al final: así el slider
+  // siempre se desliza hacia adelante y, al llegar a la copia, salta sin
+  // transición de vuelta a la tarjeta real #1 (loop continuo, sin saltos
+  // hacia atrás visibles).
+  const clone = slides[0].cloneNode(true);
+  clone.setAttribute('aria-hidden', 'true');
+  clone.setAttribute('inert', '');
+  track.appendChild(clone);
+
+  function getStep() {
+    if (total < 2) return slides[0] ? slides[0].getBoundingClientRect().width : 0;
+    return slides[1].getBoundingClientRect().left - slides[0].getBoundingClientRect().left;
+  }
+
+  function updateDots(index) {
+    dots.forEach((dot, i) => dot.classList.toggle('is-active', i === (index % total)));
+  }
+
+  function goTo(index, animate) {
     current = index;
-    track.style.transform = `translateX(-${index * 100}%)`;
-    dots.forEach((dot, i) => dot.classList.toggle('is-active', i === index));
+    track.style.transition = animate ? TRANSITION : 'none';
+    const step = getStep();
+    track.style.transform = `translateX(-${index * step}px)`;
+    updateDots(index);
   }
 
   function next() {
-    goTo((current + 1) % slides.length);
+    const nextIndex = current + 1;
+    goTo(nextIndex, true);
+
+    if (nextIndex === total) {
+      const handleEnd = (e) => {
+        if (e && e.target !== track) return;
+        track.removeEventListener('transitionend', handleEnd);
+        if (current !== total) return; // el usuario ya navegó a otro lado
+        goTo(0, false);
+        track.offsetHeight; // forzar reflow para reactivar la transición
+        track.style.transition = TRANSITION;
+      };
+      track.addEventListener('transitionend', handleEnd);
+    }
   }
 
   function startAutoplay() {
@@ -204,6 +244,8 @@ function initTestimonials() {
   const wrapper = track.closest('.testimonials__track-wrapper');
   wrapper.addEventListener('mouseenter', stopAutoplay);
   wrapper.addEventListener('mouseleave', startAutoplay);
+
+  window.addEventListener('resize', () => goTo(current, false));
 
   startAutoplay();
 }
