@@ -275,32 +275,31 @@ function initAccordion() {
   });
 }
 
-/* ---------- Formulario de contacto ---------- */
+/* ---------- Formulario de contacto (CTA) → WhatsApp ---------- */
 function initContactForm() {
-  const form = document.getElementById('contactForm');
-  const note = document.getElementById('formNote');
+  const form = document.getElementById('ctaForm');
+  const note = document.getElementById('ctaFormNote');
   if (!form) return;
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     if (!form.checkValidity()) {
-      note.textContent = 'Por favor completá todos los campos correctamente.';
+      form.reportValidity();
+      note.textContent = 'Por favor completá tu nombre y elegí un servicio.';
       note.style.color = '#c0392b';
       return;
     }
 
     const data = new FormData(form);
-    const name = data.get('name');
-    const phone = data.get('phone');
-    const email = data.get('email');
-    const message = data.get('message');
+    const name = data.get('name').trim();
+    const service = data.get('service');
+    const message = data.get('message').trim();
 
-    // Envío vía WhatsApp con los datos del formulario
-    const text = `Hola, soy ${name}.%0ATeléfono: ${phone}%0AEmail: ${email}%0AMensaje: ${message}`;
-    const whatsappUrl = `https://wa.me/541168822012?text=${encodeURIComponent(
-      `Hola, soy ${name}. Teléfono: ${phone}. Email: ${email}. Mensaje: ${message}`
-    )}`;
+    let text = `Hola, soy ${name}. Quisiera consultar por el servicio de ${service}.`;
+    if (message) text += ` ${message}`;
+
+    const whatsappUrl = `https://wa.me/541168822012?text=${encodeURIComponent(text)}`;
 
     note.textContent = 'Redirigiendo a WhatsApp para enviar tu consulta...';
     note.style.color = '';
