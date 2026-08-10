@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initGallery();
   initTestimonials();
   initAccordion();
+  initServiceSelect();
   initContactForm();
   initBackToTop();
 });
@@ -272,6 +273,79 @@ function initAccordion() {
         panel.style.maxHeight = panel.scrollHeight + 'px';
       }
     });
+  });
+}
+
+/* ---------- Selector de servicio personalizado (con buscador) ---------- */
+function initServiceSelect() {
+  const wrap = document.getElementById('ctaSelect');
+  const trigger = document.getElementById('ctaServiceTrigger');
+  const label = document.getElementById('ctaServiceLabel');
+  const panel = document.getElementById('ctaServicePanel');
+  const search = document.getElementById('ctaServiceSearch');
+  const optionsList = document.getElementById('ctaServiceOptions');
+  const empty = document.getElementById('ctaServiceEmpty');
+  const nativeSelect = document.getElementById('ctaService');
+  if (!wrap || !trigger || !panel || !nativeSelect) return;
+
+  const items = Array.from(optionsList.querySelectorAll('li'));
+
+  function open() {
+    panel.hidden = false;
+    wrap.classList.add('is-open');
+    trigger.setAttribute('aria-expanded', 'true');
+    search.value = '';
+    filterOptions('');
+    search.focus();
+  }
+
+  function close() {
+    panel.hidden = true;
+    wrap.classList.remove('is-open');
+    trigger.setAttribute('aria-expanded', 'false');
+  }
+
+  function toggle() {
+    if (panel.hidden) open(); else close();
+  }
+
+  function selectValue(value, text) {
+    nativeSelect.value = value;
+    label.textContent = text;
+    trigger.classList.add('has-value');
+    items.forEach((li) => li.setAttribute('aria-selected', li.dataset.value === value ? 'true' : 'false'));
+    close();
+    trigger.focus();
+  }
+
+  function filterOptions(query) {
+    const normalized = query.trim().toLowerCase();
+    let visibleCount = 0;
+    items.forEach((li) => {
+      const matches = li.textContent.toLowerCase().includes(normalized);
+      li.classList.toggle('is-hidden', !matches);
+      if (matches) visibleCount++;
+    });
+    empty.classList.toggle('is-visible', visibleCount === 0);
+  }
+
+  trigger.addEventListener('click', toggle);
+
+  items.forEach((li) => {
+    li.addEventListener('click', () => selectValue(li.dataset.value, li.textContent));
+  });
+
+  search.addEventListener('input', () => filterOptions(search.value));
+
+  document.addEventListener('click', (e) => {
+    if (!wrap.contains(e.target)) close();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !panel.hidden) {
+      close();
+      trigger.focus();
+    }
   });
 }
 
