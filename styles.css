@@ -787,6 +787,71 @@ section { padding-block: clamp(64px, 9vw, 120px); }
   font-size: 1.05rem;
 }
 
+.cta__form {
+  background: var(--color-white);
+  border-radius: var(--radius);
+  padding: 36px;
+  max-width: 620px;
+  margin-inline: auto;
+  text-align: left;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+}
+.cta__form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 16px;
+}
+.cta__form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 14px;
+  min-width: 0;
+}
+.cta__form-field label { font-size: 0.85rem; font-weight: 500; color: var(--text-main); }
+.cta__required { color: #c0392b; }
+.cta__form-field input,
+.cta__form-field select,
+.cta__form-field textarea {
+  border: 1.5px solid rgba(32,33,36,0.12);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  background: var(--color-white);
+  transition: border-color var(--speed) var(--ease), box-shadow var(--speed) var(--ease);
+}
+.cta__form-field select { appearance: auto; }
+.cta__form-field textarea { resize: vertical; }
+.cta__form-field input:focus,
+.cta__form-field select:focus,
+.cta__form-field textarea:focus {
+  outline: none;
+  border-color: var(--color-green);
+  box-shadow: 0 0 0 4px rgba(110,187,78,0.15);
+}
+.cta__form-submit { margin-top: 22px; margin-inline: auto; justify-content: center; }
+.cta__form-trust {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: var(--color-green-dark);
+}
+.cta__form-trust i { color: var(--color-green-dark); }
+.cta__form-note {
+  font-size: 0.86rem;
+  color: var(--color-green-dark);
+  min-height: 1.2em;
+  margin-top: 12px;
+}
+
 /* ============ 13. CONTACTO ============ */
 .contact__grid {
   display: grid;
@@ -1008,6 +1073,9 @@ section { padding-block: clamp(64px, 9vw, 120px); }
   .footer__bottom { flex-direction: column; gap: 16px; text-align: center; }
   .about__badge { right: 12px; bottom: -18px; padding: 14px 18px; }
   .contact__form { padding: 24px; }
+  .cta__form { padding: 24px; }
+  .cta__form-grid { grid-template-columns: 1fr; }
+  .cta__form-submit { width: 100%; }
   .hero__actions { flex-direction: column; align-items: stretch; width: 100%; }
   .hero__actions .btn { justify-content: center; }
   .hero__video {
