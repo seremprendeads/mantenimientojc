@@ -430,7 +430,6 @@ section { padding-block: clamp(64px, 9vw, 120px); }
 
 .partner__media {
   width: 100%;
-  max-width: 320px;
   margin-inline: auto;
   background: var(--bg-section-alt);
   border-radius: var(--radius);
