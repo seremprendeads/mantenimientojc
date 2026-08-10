@@ -263,6 +263,15 @@ section { padding-block: clamp(64px, 9vw, 120px); }
 .navbar__link:hover::after { width: 100%; }
 
 .navbar__cta { padding: 11px 22px; font-size: 0.88rem; }
+.navbar__cta,
+.navbar__cta i,
+.navbar.is-scrolled .navbar__cta,
+.navbar.is-scrolled .navbar__cta i,
+.navbar__cta:hover,
+.navbar__cta:hover i {
+  color: var(--color-white);
+}
+.navbar__cta::after { content: none; }
 
 .navbar__toggle {
   display: none;
