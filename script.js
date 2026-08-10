@@ -296,7 +296,6 @@ function initServiceSelect() {
     trigger.setAttribute('aria-expanded', 'true');
     search.value = '';
     filterOptions('');
-    search.focus();
   }
 
   function close() {
