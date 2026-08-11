@@ -372,6 +372,9 @@ section { padding-block: clamp(64px, 5vw, 80px); }
   font-weight: 300;
   text-wrap: balance;
 }
+.hero__subtitle_negrita{
+     font-weight: 400;
+}
 
 .hero__video {
   position: relative;
