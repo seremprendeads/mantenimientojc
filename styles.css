@@ -370,6 +370,7 @@ section { padding-block: clamp(64px, 5vw, 80px); }
   margin-inline: auto;
   margin-bottom: 32px;
   font-weight: 300;
+  text-wrap: balance;
 }
 
 .hero__video {
@@ -1250,7 +1251,8 @@ section { padding-block: clamp(64px, 5vw, 80px); }
   .focus-list__item { font-size: 0.92rem; padding: 14px 16px; }
   .why__grid { grid-template-columns: 1fr; }
   .gallery__grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
- .hero__brands { margin-top: 28px; }
+ 
+.hero__brands { margin-top: 28px; }
  .hero__brands-row {
   display: grid;
   grid-template-columns: repeat(2, 6fr);
@@ -1259,7 +1261,6 @@ section { padding-block: clamp(64px, 5vw, 80px); }
   margin-inline: auto;
 }
 .hero__brands-row img { width: 120px; height: 120px; }
-
   /* Footer — mobile */
   .footer { padding-top: 56px; }
   .footer__grid {
@@ -1338,4 +1339,6 @@ section { padding-block: clamp(64px, 5vw, 80px); }
   .about__badge { padding: 12px 16px; bottom: -14px; right: 8px; }
   .about__badge-number { font-size: 1.5rem; }
   .about__badge-label { font-size: 0.68rem; }
+
+  
 }
