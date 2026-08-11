@@ -423,6 +423,37 @@ section { padding-block: clamp(64px, 5vw, 80px); }
   flex-shrink: 0;
 }
 
+.hero__brands {
+  margin-top: 36px;
+  text-align: center;
+}
+.hero__brands-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 14px;
+}
+.hero__brands-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+.hero__brands-row img {
+  width: 86px;
+  height: 86px;
+  object-fit: contain;
+  opacity: 0.9;
+  transition: transform var(--speed) var(--ease), opacity var(--speed) var(--ease);
+}
+.hero__brands-row img:hover {
+  opacity: 1;
+  transform: translateY(-2px) scale(1.06);
+}
+
 
 @keyframes scrollDot {
   0% { opacity: 1; top: 8px; }
@@ -438,21 +469,18 @@ section { padding-block: clamp(64px, 5vw, 80px); }
   align-items: center;
  }
 
-.partner {
-  background: var(--bg-section-alt);
-}
+
 
 .partner__grid_servicios {
   display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: 56px;
   align-items: center;
 }
 
-.partner__head {
-  text-align: left;
-  max-width: none;
-  margin: 0;
+.partner__head h2 {
+    max-width: none;
+    margin: 0;
+    text-align: center;
+    color: white;
 }
 
 .focus-list {
@@ -1199,7 +1227,7 @@ section { padding-block: clamp(64px, 5vw, 80px); }
 
   .about__grid { grid-template-columns: 1fr; }
   .partner__grid { grid-template-columns: 1fr; gap: 32px; }
-  .partner__grid_servicios { grid-template-columns: 1fr; gap: 32px; }
+  .partner__grid_servicios { grid-template-columns: 1fr; }
   .partner__media { max-width: 320px; margin: 0 auto; }
   .partner__head { text-align: center; }
   .contact__grid { grid-template-columns: 1fr; }
@@ -1223,6 +1251,9 @@ section { padding-block: clamp(64px, 5vw, 80px); }
   .focus-list__item { font-size: 0.92rem; padding: 14px 16px; }
   .why__grid { grid-template-columns: 1fr; }
   .gallery__grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .hero__brands { margin-top: 28px; }
+.hero__brands-row { gap: 14px; }
+.hero__brands-row img { width: 62px; height: 62px; }
 
   /* Footer — mobile */
   .footer { padding-top: 56px; }
