@@ -342,7 +342,6 @@ section { padding-block: clamp(64px, 5vw, 80px); }
   display: flex;
   justify-content: center;
   width: 100%;
-  padding-bottom: 60px;
 }
 
 .hero__content {
@@ -1251,9 +1250,15 @@ section { padding-block: clamp(64px, 5vw, 80px); }
   .focus-list__item { font-size: 0.92rem; padding: 14px 16px; }
   .why__grid { grid-template-columns: 1fr; }
   .gallery__grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .hero__brands { margin-top: 28px; }
-.hero__brands-row { gap: 14px; }
-.hero__brands-row img { width: 62px; height: 62px; }
+ .hero__brands { margin-top: 28px; }
+ .hero__brands-row {
+  display: grid;
+  grid-template-columns: repeat(2, 6fr);
+  justify-items: center;
+  max-width: 240px;
+  margin-inline: auto;
+}
+.hero__brands-row img { width: 120px; height: 120px; }
 
   /* Footer — mobile */
   .footer { padding-top: 56px; }
