@@ -290,13 +290,19 @@ function initServiceSelect() {
 
   const items = Array.from(optionsList.querySelectorAll('li'));
 
+  // En mobile/táctil no auto-enfocamos el buscador: el teclado virtual
+  // se dispara y tapa la lista de opciones antes de poder elegir.
+  const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
+
   function open() {
     panel.hidden = false;
     wrap.classList.add('is-open');
     trigger.setAttribute('aria-expanded', 'true');
     search.value = '';
     filterOptions('');
-    search.focus();
+    if (!isTouchDevice) {
+      search.focus();
+    }
   }
 
   function close() {
