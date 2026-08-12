@@ -544,7 +544,6 @@ section { padding-block: clamp(64px, 5vw, 80px); }
   object-fit: contain;
   display: block;
 }
-
 .partner__info {
   margin-top: 22px;
   display: flex;
