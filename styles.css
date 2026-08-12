@@ -373,7 +373,7 @@ section { padding-block: clamp(64px, 5vw, 80px); }
   text-wrap: balance;
 }
 .hero__subtitle_negrita{
-     font-weight: 400;
+     font-weight: 600;
 }
 
 .hero__video {
