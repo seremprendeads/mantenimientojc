@@ -1291,7 +1291,7 @@ section { padding-block: clamp(64px, 5vw, 80px); }
   .focus-list__item { font-size: 0.92rem; padding: 14px 16px; }
   .why__grid { grid-template-columns: 1fr; }
   .gallery__grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .hero__subtitle { font-size: 1.1rem; }
+  .hero__subtitle { font-size: 1.3rem; }
  
 .hero__brands { margin-top: 28px; }
  .hero__brands-row {
