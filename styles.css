@@ -495,7 +495,7 @@ section { padding-block: clamp(64px, 5vw, 80px); }
 .focus-list__item {
   display: flex;
   align-items: center;
-  justify-content: flex-start;  
+  justify-content: flex-start;
   gap: 12px;
   background: var(--color-white);
   border-radius: var(--radius-sm);
@@ -504,7 +504,7 @@ section { padding-block: clamp(64px, 5vw, 80px); }
   font-size: 0.98rem;
   font-weight: 500;
   color: var(--text-main);
-  text-align: left;          
+  text-align: left;
   transition: transform var(--speed) var(--ease), box-shadow var(--speed) var(--ease);
 }
 
@@ -544,39 +544,37 @@ section { padding-block: clamp(64px, 5vw, 80px); }
   object-fit: contain;
   display: block;
 }
-.partner__media--promo { position: relative; overflow: visible; }
 
 .promo-badge {
-  position: absolute;
-  top: -18px;
-  right: -18px;
+  float: right;
+  clear: right;
+  margin: 6px 0 12px 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 112px;
-  height: 112px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--color-yellow), #ffdf80);
   color: var(--color-black);
   box-shadow: var(--shadow-lg);
-  border: 3px solid var(--color-white);
-  transform: rotate(12deg);
+  border: 4px solid var(--color-white);
   text-align: center;
   line-height: 1.15;
-  z-index: 2;
 }
 .promo-badge__top {
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 800;
   text-transform: uppercase;
 }
 .promo-badge__bottom {
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.02em;
 }
+
 .partner__info {
   margin-top: 22px;
   display: flex;
@@ -1271,6 +1269,9 @@ section { padding-block: clamp(64px, 5vw, 80px); }
   .partner__head { text-align: center; }
   .contact__grid { grid-template-columns: 1fr; }
   .about__badge { right: 12px; }
+  .promo-badge { width: 96px; height: 96px; margin: 4px 0 10px 12px; }
+  .promo-badge__top { font-size: 0.85rem; }
+  .promo-badge__bottom { font-size: 0.62rem; }
 }
 
 @media (max-width: 900px) {
@@ -1379,9 +1380,6 @@ section { padding-block: clamp(64px, 5vw, 80px); }
   .about__badge { padding: 12px 16px; bottom: -14px; right: 8px; }
   .about__badge-number { font-size: 1.5rem; }
   .about__badge-label { font-size: 0.68rem; }
-   .promo-badge { width: 92px; height: 92px; top: -12px; right: -8px; }
-.promo-badge__top { font-size: 0.85rem; }
-.promo-badge__bottom { font-size: 0.62rem; }
 
   
 }
