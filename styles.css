@@ -495,6 +495,7 @@ section { padding-block: clamp(64px, 5vw, 80px); }
 .focus-list__item {
   display: flex;
   align-items: center;
+  justify-content: flex-start;  
   gap: 12px;
   background: var(--color-white);
   border-radius: var(--radius-sm);
@@ -503,8 +504,11 @@ section { padding-block: clamp(64px, 5vw, 80px); }
   font-size: 0.98rem;
   font-weight: 500;
   color: var(--text-main);
+  text-align: left;          
   transition: transform var(--speed) var(--ease), box-shadow var(--speed) var(--ease);
 }
+
+.focus-list__item span { text-align: left; }
 
 .focus-list__item:hover {
   transform: translateY(-3px);
