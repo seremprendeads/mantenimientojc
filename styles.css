@@ -364,7 +364,7 @@ section { padding-block: clamp(64px, 5vw, 80px); }
 }
 
 .hero__subtitle {
-  font-size: 1.1rem;
+  font-size: 1.8rem;
   color: rgba(255,255,255,0.86);
   max-width: 620px;
   margin-inline: auto;
