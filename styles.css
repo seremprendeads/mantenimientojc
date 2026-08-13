@@ -385,8 +385,8 @@ section { padding-block: clamp(64px, 5vw, 80px); }
 }
 
 .hero__trust-sep {
-  color: rgba(255, 255, 255, 0.4);
-  font-weight: 400;
+  color: #fff;
+  font-weight: 600;
 }
 
 @media (max-width: 640px) {
