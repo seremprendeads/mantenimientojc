@@ -474,7 +474,7 @@ section { padding-block: clamp(64px, 5vw, 80px); }
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.55);
+  color: rgb(255 255 255 / 78%);
   margin-bottom: 14px;
 }
 .hero__brands-row {
